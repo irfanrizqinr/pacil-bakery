@@ -45,4 +45,6 @@ jawaban : git memungkinkan pengembang perangkat lunak untuk berkolaborasi dan me
 
 jawaban : Salah satu yang paling menonjol dari Django Framework adalah community support. Dengan menggunakan framework Django, kita dapat dengan mudah belajar dari sumber yang tak terbatas di internet karena kepopulerannya yang tinggi. Selain itu, dokumentasi django sangat lengkap sehingga cocok bagi pemula untuk mempelajari lebih dalam terkait fitur, sintaks, serta alur kerja dari komponen-komponen pada django.
 
+6. Mengapa model pada Django disebut sebagai ORM?
 
+jawaban : karena Django menggunakan pendekatan ORM untuk menghubungkan model dengan database relasional. ORM memungkinkan pengembang untuk bekerja dengan data dalam bentuk objek daripada menulis query secara langsung, sehingga memudahkan interaksi dengan basis data tanpa harus memahami atau menulis kode SQL.
