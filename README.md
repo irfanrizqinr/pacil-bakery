@@ -1,4 +1,4 @@
-1. tautan menuju PWS : "irfan-rizqi31-pacilbakery.pbp.cs.ui.ac.id"
+1. tautan menuju PWS : "http://irfan-rizqi31-pacilbakery.pbp.cs.ui.ac.id"
 
 2. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)
 
