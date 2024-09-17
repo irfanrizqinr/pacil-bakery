@@ -1,3 +1,5 @@
+{% extends 'base.html' %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,19 +34,74 @@
             width: 100%;
             bottom: 0;
         }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 12px;
+            text-align: center; /* Align text ke tengah */
+        }
+        th {
+            background-color: #d4a373;
+            color: white;
+        }
+        td {
+            background-color: #f0e6d8;
+        }
+        a button {
+            padding: 10px 20px;
+            background-color: #d4a373;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        a button:hover {
+            background-color: #b38b5b;
+        }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>Selamat Datang di {{namatoko}}</h1>
+        <h1>Selamat Datang di {{namatoko}} 🍞</h1>
         <p>Toko roti Pacil dengan aneka pilihan roti istimewa!</p>
     </div>
     <div class="content">
         <h2>About Us</h2>
         <p>Dimiliki oleh {{namapemilik}}, seorang pembuat roti di kelas {{kelaspemilik}}.</p>
+
+        {% if not product_entries %}
+        <p>Belum ada data Product pada Pacil Bakery.</p>
+        {% else %}
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Description</th>
+            </tr>
+            {% for product_entry in product_entries %}
+            <tr>
+                <td>{{product_entry.name}}</td>
+                <td>{{product_entry.price}}</td>
+                <td>{{product_entry.description}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+        
+        <br />
+        
+        <a href="{% url 'main:create_product' %}">
+            <button>Add New Product</button>
+        </a>
     </div>
     <div class="footer">
         <p>&copy; 2024 {{namatoko}}. All rights reserved.</p>
     </div>
 </body>
 </html>
+{% endblock content %}

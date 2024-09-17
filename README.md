@@ -1,3 +1,6 @@
+[Pertanyaan Tugas-Tugas]
+
+----------------------Tugas 2---------------------------------------
 1. tautan menuju PWS : "http://irfan-rizqi31-pacilbakery.pbp.cs.ui.ac.id"
 
 2. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)
@@ -48,3 +51,42 @@ jawaban : Salah satu yang paling menonjol dari Django Framework adalah community
 6. Mengapa model pada Django disebut sebagai ORM?
 
 jawaban : karena Django menggunakan pendekatan ORM untuk menghubungkan model dengan database relasional. ORM memungkinkan pengembang untuk bekerja dengan data dalam bentuk objek daripada menulis query secara langsung, sehingga memudahkan interaksi dengan basis data tanpa harus memahami atau menulis kode SQL.
+
+
+-------------------Tugas 3----------------------------
+7. Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?
+
+Jawaban: Data delivery (pengiriman data) sangat penting dalam pengimplementasian sebuah platform dengan memastikan informasi atau layanan yang dikeluarkan oleh platform dapat diakses dengan tepat, cepat, dan efisien oleh pengguna. 
+
+8. Menurutmu, mana yang lebih baik antara XML dan JSON? Mengapa JSON lebih populer dibandingkan XML?
+
+Jawaban: JSON dianggap lebih baik dan lebih populer daripada XML karena formatnya yang lebih sederhana, mudah dipahami, dan muah diproses baik oleh mesin maupun manusia. Dengan struktur yang berbasis objek, JSON lebih cocok untuk bahasa pemrograman modern seperti JavaScript, sehingga lebih efisien dalam pertukaran data di web. Meskipun begitu, XML memiliki keunggulan dalam menangani data yang lebih kompleks dengan skema dan validasi, JSON yang lebih ringan dan cepat membuatnya lebih sering digunakan dalam pengembangan web dan API.
+
+9. Jelaskan fungsi dari method is_valid() pada form Django dan mengapa kita membutuhkan method tersebut?
+
+Jawaban: Method `is_valid()` pada form Django digunakan untuk memeriksa apakah data yang dimasukkan sesuai dengan aturan validasi yang telah ditentukan. Jika valid, method ini mengembalikan `True` dan menghasilkan `cleaned_data` yang dapat diproses lebih lanjut, sementara jika tidak valid, akan mengembalikan `False` dan menyimpan pesan kesalahan di atribut `errors`. Method ini penting untuk memastikan hanya data yang valid yang diproses oleh aplikasi.
+
+10. Mengapa kita membutuhkan csrf_token saat membuat form di Django? Apa yang dapat terjadi jika kita tidak menambahkan csrf_token pada form Django? Bagaimana hal tersebut dapat dimanfaatkan oleh penyerang?
+
+Jawaban : `csrf_token` diperlukan dalam form di Django untuk melindungi aplikasi dari Cross-Site Request Forgery (CSRF), yaitu serangan yang mencoba mengeksploitasi sesi pengguna dengan mengirimkan permintaan berbahaya yang terlihat sah. Tanpa `csrf_token`, form dapat menjadi sasaran serangan ini, di mana penyerang bisa menggunakan sesi pengguna untuk melakukan tindakan yang tidak diinginkan, seperti mengubah data atau melaksanakan transaksi tanpa izin. `csrf_token` memastikan bahwa setiap permintaan form berasal dari sumber yang sah dan bukan dari situs lain.
+
+11.  Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
+Jawaban : 
+Step 1 : buatlah direktori templates pada direktori utama project dan tambahkan base.html di dalamnya, serta modifikasi BASE_DIRS
+Step 2 : modifikasi models.py dan import uuid
+Step 3 : migrasi basis data
+Step 4 : buatlah forms untuk memasukkan data pada komponen-komponen data yang sudah ditentukan pada models (seperti name, price, description)
+Step 5 : buatlah fungsi untuk mengembalikan data dengan format XML
+Step 6 : buatlah fungsi untuk mengembalikan data dengan format JSON
+Step 7 : buatlah fungsi untuk mengembalikan data XML filtered by id
+Step 8 : buatlah fungsi untuk mengembalikan data JSON filtered by id
+Step 9 : Modifikasi urls dengan menambahkan path path yang bersesuaian.
+Step 10 : Runserver dan lakukan proses git
+
+11. Mengakses keempat URL di poin 2 menggunakan Postman, membuat screenshot dari hasil akses URL pada Postman, dan menambahkannya ke dalam README.md.
+
+![Show XML dari Postman](images/show_xml.png)
+![Show JSON dari Postman](images/show_json.png)
+![Show XML by ID dari Postman](images/show_xml_by_id.png)
+![Show JSON by ID dari Postman](images/show_json_by_id.png)
