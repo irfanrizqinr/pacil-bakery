@@ -90,3 +90,5 @@ Step 10 : Runserver dan lakukan proses git
 ![Show JSON dari Postman](images/show_json.png)
 ![Show XML by ID dari Postman](images/Show_xml_by_id.png)
 ![Show JSON by ID dari Postman](images/show_json_by_id.png)
+
+sekian terima kasih!
