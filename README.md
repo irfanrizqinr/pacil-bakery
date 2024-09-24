@@ -92,3 +92,66 @@ Step 10 : Runserver dan lakukan proses git
 ![Show JSON by ID dari Postman](images/show_json_by_id.png)
 
 sekian terima kasih!
+
+--------------------------Tugas 4-------------------------------
+
+1. Apa perbedaan antara HttpResponseRedirect() dan redirect()?
+Jawaban : 
+
+Pada kode yang digunakan misal logout_user, HttpResponseRedirect() memungkinkan kita untuk membuat objek response dahulu, kemudian melakukan operasi seperti menghapus cookie pada objek response, dan akhirnya mengembalikan respons tersebut. Jika kita menggunakan redirect() secara langsung, kita tidak akan mendapatkan objek response untuk dimodifikasi (seperti menghapus cookie). redirect() adalah shortcut yang langsung mengembalikan respons, tanpa memberikan kita kesempatan untuk memodifikasi objek tersebut.
+
+2. Jelaskan cara kerja penghubungan model Product dengan User!
+
+step 1: ForeignKey digunakan untuk menghubungkan model Product dengan User, dengan tujuan agar produk memiliki pemilik yang jelas.
+
+step 2 : on_delete=models.CASCADE memastikan bahwa ketika pengguna dihapus, produk yang dimiliki oleh pengguna tersebut juga akan dihapus.
+
+step 3 : Saat menyimpan Product, kita menetapkan field owner sebagai User yang sedang login contoh (product_entry.user).
+
+step 4 : Jika kita ingin menampilkan produk yang hanya dimiliki oleh user tertentu, misalnya user yang sedang login, kita bisa melakukannya seperti ini: 
+
+product_entries = Product.objects.filter(user=request.user)
+
+3. Apa perbedaan antara authentication dan authorization, apakah yang dilakukan saat pengguna login? Jelaskan bagaimana Django mengimplementasikan kedua konsep tersebut.
+
+Jawaban :
+Authentication adalah bagaimana suatu web page memverifikasi user yang menggunakan web page tersebut
+Authorization adalah bagaimana user dapat mengakses fitur fitur yang sudah diseleksi hanya bagian dari user tersebut.
+
+Django menggunakan konsep login, bisa menggunakan alternatif OAuth, OaAuth2 dll. Django juga menggunakan konsep session dan cookies untuk mengingat user yang sedang login.
+
+4. Bagaimana Django mengingat pengguna yang telah login? Jelaskan kegunaan lain dari cookies dan apakah semua cookies aman digunakan?
+
+Jawaban :
+Django menggunakan session framework dan cookies. dengan tahapan tahapan seperti login process, session storage, request object, dan logout process.
+
+Kegunaan lain cookies dari segi keamanaan adalah menyimpan CSRF, token yang menyimpan bahwa permintaan berasal dari sumber yang sah.
+
+Tidak semua Cookies aman untuk digunakan. Penting untuk memastikan bahwa cookies yang digunakan untuk menyimpan informasi sensitif dikonfigurasi dengan aman, menggunakan mekanisme seperti HttpOnly dan secure cookies untuk melindungi dari serangan XSS dan session hijacking.
+
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
+Step 1 : Membuat fungsi (from django.contrib.auth.forms import UserCreationForm) dan form registrasi (membuat fungsi register)
+Step 2 : Membuat template registrasinya (register.html)
+Step 3 : URL Routing form registrasi
+Step 4 : Import fungsi authentication dan login, serta membuat form login (login_user)
+Step 5 : Membuat template loginnya (login.html)
+Step 6 : URL Routing form login
+Step 7 : Hal yang sama dilakukan dengan tombol logout (membuat fungsi, tambahkan button di main.html, url routing)
+Step 8 : Menggunakan Cookies untuk merestriksi user
+
+1. from decorator import login_required
+2. pasang di atas fungsi show_main
+3. modifikasi fungsi login dengan menambahkan set_cookie setiap form valid
+4. menambahkan context last_login untuk ditampilkan di main.html
+5. modifikasi fungsi logout dengan menambhakan delete_cookie setiap logout dipencet
+
+Step 9 : Menghubungkan model dengan user
+1. import user pada models.py
+2. tambahkan field user dengan foreignkey
+3. modifikasi create_product pada views.py sehingga product yang ditambahkan sesuai dengan user
+4. boleh tambahkan juga data pada context untuk menampilkan user yang sedang login dengan request.user.username
+5. migrasi database
+
+Step 8 : Lakukan Git add, commit, Push
+
