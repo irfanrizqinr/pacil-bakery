@@ -1,164 +1,55 @@
 {% extends 'base.html' %}
+{% load static %}
+
 {% block content %}
+{% include 'navbar.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{namatoko}} - Toko Roti</title>
-    <style>
-        body {
-        
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f5f2;
-            color: #333;
-        }
+<!-- Menampilkan Nama User dan Last Login -->
+<div class="text-center mt-6">
+  <h2 class="text-2xl font-semibold text-[#4e3620]">Welcome, {{ namaUser }}!</h2>
+  <p class="text-sm text-[#8b572a] mt-2">Last login: {{ last_login }}</p>
+</div>
 
-        .header {
-            background-color: #d4a373;
-            padding: 15px;
-            text-align: center;
-            color: #fff;
-        }
-        .header h1 {
-            margin-bottom: 7px; /* Atur jarak bawah dari h1 */
-        }
-        .header p {
-            margin-top: 5px; /* Atur jarak atas dari p */
-            margin-bottom: 30px;
-        }
-        .content {
-            padding: 20px;
-            text-align: center;
-        }
-        .footer {
-            background-color: #d4a373;
-            padding: 10px;
-            text-align: center;
-            color: #fff;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-        table {
-            width: 80%;
-            margin: 20px auto;
-            border-collapse: collapse;
-            background-color: #fff;
-        }
-        th, td {
-            border: 1px solid #ccc;
-            padding: 12px;
-            text-align: center; /* Align text ke tengah */
-        }
-        th {
-            background-color: #d4a373;
-            color: white;
-        }
-        td {
-            background-color: #f0e6d8;
-        }
-        a button {
-            padding: 10px 20px;
-            background-color: #d4a373;
-            border: none;
-            border-radius: 10px;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        a button:hover {
-            background-color: #b38b5b;
-        }
-        /* Style untuk pesan selamat datang di pojok kiri atas */
-        .welcome-message {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background-color: #fff;
-            padding: 5px;
-            border-radius: 10px;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-            font-size: 14px;
-            color: #683205;
-        }
-        .welcome-message p {
-            margin: 0; /* Menghilangkan margin default dari paragraf */
-            padding: 2px 10px; /* Opsional: sedikit padding horizontal */
-        }
-        .last-login {
-            position: absolute;
-            top: 29px;
-            left: 10px;
-            font-size: 14px;
-            color: #ffffff;
-            padding : 1px 3px;
-        }
-        .product-message {
-            font-weight: bold; /* Membuat teks tebal */
-            color: #8B4513; /* Warna coklat yang sesuai */
-            font-size: 18px; /* Ukuran font sedikit lebih besar */
-            margin-bottom: 15px; /* Memberikan sedikit jarak bawah sebelum tabel */
-        }
-    </style>
-</head>
-<body>
-    <!-- Pesan Selamat Datang di pojok kiri atas -->
-    <div class="welcome-message">
-        <p>Halo, <strong>{{namaUser}}!</strong> Senang bertemu denganmu kembali.  </p>
+<!-- Bagian Card Info (Nama, Kelas, NPM) -->
+<div class="overflow-x-hidden px-4 md:px-8 pb-4 pt-4 min-h-screen bg-white flex flex-col">
+  <div class="p-2 mb-4 relative">
+    <!-- Grid untuk Card Info -->
+    <div class="relative grid grid-cols-1 z-30 md:grid-cols-3 gap-4">
+      {% include "card_info.html" with title='NPM' value=npm %}
+      {% include "card_info.html" with title='Name' value=name %}
+      {% include "card_info.html" with title='Class' value=class %}
     </div>
 
-    <div class="last-login">
-        <h5>Sesi terakhir login: {{ last_login }}</h5>
+    <!-- Bagian Dekorasi -->
+    <div class="w-full px-6 absolute top-[30px] left-0 z-20 hidden md:flex">
+      <div class="w-full min-h-4 bg-[#d4a373]"></div>
+    </div>
+    <div class="h-full w-full py-4 absolute top-0 left-0 z-20 md:hidden flex">
+      <div class="h-full min-w-4 bg-[#d4a373] mx-auto"></div>
+    </div>
+  </div>
+
+  <!-- Bagian Daftar Produk -->
+  <div class="container mx-auto py-8">
+    <div class="text-center mb-6">
+      <h1 class="text-3xl font-bold text-[#4e3620]">Daftar Produk Pacil Bakery</h1>
     </div>
 
-    <div class="header">
-        <h1>Selamat Datang di {{namatoko}} 🍞</h1>
-        <p><em>Toko roti Pacil dengan aneka pilihan roti istimewa!</em></p>
-    </div>
-    <div class="content">
-        <h2>About Me</h2>
-        <p>Dimiliki oleh {{namapemilik}}, seorang pembuat roti di kelas {{kelaspemilik}}.</p>
-
-        {% if not product_entries %}
-        <p>Belum ada data Product pada Pacil Bakery.</p>
-        {% else %}
-
-        <p class="product-message">Produk yang sudah Anda pesan adalah berikut:</p>
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Description</th>
-            </tr>
-            {% for product_entry in product_entries %}
-            <tr>
-                <td>{{product_entry.name}}</td>
-                <td>{{product_entry.price}}</td>
-                <td>{{product_entry.description}}</td>
-            </tr>
-            {% endfor %}
-        </table>
-        {% endif %}
-        
-        <br />
-        
-        <a href="{% url 'main:create_product' %}">
-            <button>Add New Product</button>
-        </a>
-        <br><br>
-        <a href="{% url 'main:logout' %}">
-            <button>Logout</button>
-        </a>
-        
-    </div>
-    <div class="footer">
-        <p>&copy; 2024 {{namatoko}}. All rights reserved.</p>
-    </div>
-</body>
-</html>
+    <!-- Jika ada produk, tampilkan dalam bentuk card -->
+    {% if product_entries %}
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {% for product in product_entries %}
+          <!-- Menggunakan template card_product.html untuk setiap produk -->
+          {% include 'card_product.html' with product=product %}
+        {% endfor %}
+      </div>
+    {% else %}
+      <!-- Jika tidak ada produk -->
+      <div class="text-center">
+        <img src="{% static 'image/no-product.png' %}" alt="No Products" class="mx-auto h-64 w-auto">
+        <p class="text-lg text-[#4e3620] mt-4">Belum ada produk yang ditambahkan.</p>
+      </div>
+    {% endif %}
+  </div>
+</div>
 {% endblock content %}

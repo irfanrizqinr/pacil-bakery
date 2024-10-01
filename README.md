@@ -155,3 +155,49 @@ Step 9 : Menghubungkan model dengan user
 
 Step 8 : Lakukan Git add, commit, Push
 
+
+------------------------Tugas 5-------------------------------
+
+1. Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!
+
+Jawaban :
+Dalam CSS, prioritas pengambilan selector ditentukan oleh specificity dengan urutan: pertama, inline style memiliki prioritas tertinggi, diikuti oleh ID selector, kemudian class, pseudo-class, dan attribute selector, lalu type selector (tag HTML) dan pseudo-element, serta universal selector memiliki prioritas terendah. Selain itu, aturan yang menggunakan !important akan mengesampingkan semua aturan lain, kecuali ada deklarasi !important lain dengan tingkat specificity lebih tinggi. Jika dua selector memiliki tingkat specificity yang sama, aturan yang dideklarasikan terakhir akan digunakan.
+
+
+2. Mengapa responsive design menjadi konsep yang penting dalam pengembangan aplikasi web? Berikan contoh aplikasi yang sudah dan belum menerapkan responsive design!
+
+Jawaban :
+
+Responsive design penting dalam pengembangan aplikasi web karena memungkinkan tampilan dan fungsionalitas situs menyesuaikan diri secara otomatis dengan berbagai ukuran layar dan perangkat, seperti smartphone, tablet, dan desktop. Hal ini meningkatkan pengalaman pengguna (user experience) dengan memastikan situs tetap mudah diakses dan digunakan, tanpa perlu menggulir atau memperbesar layar secara manual. Contoh aplikasi yang sudah menerapkan responsive design adalah Twitter, yang terlihat rapi di berbagai perangkat, sedangkan aplikasi lama seperti Craigslist cenderung kurang responsif karena tampilannya tetap sama di semua perangkat, sering kali menyulitkan pengguna di layar kecil.
+
+3. Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut!
+
+Jawaban :
+
+Margin, border, dan padding adalah tiga properti CSS yang mengatur ruang di sekitar elemen HTML:
+
+Margin adalah ruang kosong di luar elemen yang memisahkan elemen tersebut dari elemen lain. Margin tidak memiliki warna dan tidak termasuk dalam elemen itu sendiri. Border adalah garis di sekitar elemen yang memisahkan elemen dari margin. Border bisa memiliki warna, ketebalan, dan gaya (misalnya solid, dashed). Padding adalah ruang di dalam elemen, antara konten elemen dan border. Padding memberikan jarak antara isi elemen dan tepi border.
+
+Singkatnya, padding berada di dalam border, border di antara padding dan margin, dan margin di luar border.
+
+4.  Jelaskan konsep flex box dan grid layout beserta kegunaannya!
+
+Jawaban :
+Flexbox dan Grid Layout adalah dua sistem tata letak di CSS yang memudahkan pengaturan elemen pada halaman web. 
+
+Flexbox adalah tata letak satu dimensi yang mengatur elemen secara horizontal atau vertikal, cocok untuk tata letak sederhana dan responsif seperti navbar atau daftar. Flexbox fleksibel dalam mendistribusikan ruang antar elemen sesuai ukuran kontainer. 
+
+Grid Layout adalah sistem dua dimensi yang memungkinkan pengaturan elemen dalam baris dan kolom, ideal untuk tata letak yang lebih kompleks seperti halaman dashboard atau majalah. Grid memberikan kontrol lebih detail untuk membuat tata letak yang terstruktur dan fleksibel.
+
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
+
+Jawaban :
+
+Step 1 : Menambahkan Tailwind ke Aplikasi
+Step 2 : Membuat fitur Edit Mood dan lakukan routing
+Step 3 : Membuat fitur Hapus mood dan lakukan routing
+Step 4 : Menambahkan Navigation Bar "navbar.html" lalu include ke semua template yang bersesuaian
+Step 5 : Melakukan konfigurasi Static files
+Step 6 : Menambahkan Global.css sebagai styling utama
+Step 7 : Styling tiap halaman yang ada (tiap file pada /templates)
+Step 8 : Lakukan Git add, commit dan push ke remote repo.

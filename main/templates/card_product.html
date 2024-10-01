@@ -1,0 +1,20 @@
+<div class="bg-white shadow-md rounded-lg p-6 mb-4 transform transition-transform duration-300 hover:scale-105 hover:shadow-lg">
+    <h3 class="text-lg font-bold text-[#4e3620] mb-2">{{ product.name }}</h3>
+    <p class="text-sm text-[#8b572a]">Price: Rp {{ product.price }}</p>
+    <p class="text-sm text-[#4e3620] mb-4">{{ product.description }}</p>
+  
+    <!-- Tombol Edit dan Delete -->
+    <div class="flex space-x-4">
+      <a href="{% url 'main:edit_product' product.pk %}" class="w-full">
+        <button class="w-full bg-[#d4a373] hover:bg-[#b38b5b] text-white font-semibold py-2 px-4 rounded-md">
+          Edit
+        </button>
+      </a>
+      <a href="{% url 'main:delete_product' product.pk %}" class="w-full">
+        <button class="w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-md">
+          Delete
+        </button>
+      </a>
+    </div>
+  </div>
+  

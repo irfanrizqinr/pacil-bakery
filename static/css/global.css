@@ -1,0 +1,136 @@
+/* Global Style for pacil Bakery */
+
+/* Body Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fffaf0; /* Warm background color resembling bakery theme */
+    color: #4e3620; /* Brown text color for bakery feel */
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar Styling */
+nav {
+    background-color: #d4a373; /* Light brown for bakery feel */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Form Styles */
+.form-style form input,
+.form-style form textarea,
+.form-style form select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #bcbcbc;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    background-color: #f8f5f2; /* Light cream background */
+    color: #4e3620; /* Brown color for text inside input */
+}
+
+/* Focused input styles */
+.form-style form input:focus,
+.form-style form textarea:focus,
+.form-style form select:focus {
+    outline: none;
+    border-color: #b38b5b; /* Darker brown when focused */
+    box-shadow: 0 0 0 3px #d4a373; /* Light brown glow when focused */
+}
+
+/* Button Styling */
+button {
+    background-color: #d4a373;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #b38b5b; /* Darker brown on hover */
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px #b38b5b; /* Brown glow when focused */
+}
+
+/* Card Styling */
+.card {
+    background-color: #fdf6e4; /* Soft cream color for card background */
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Animation for bakery products */
+@keyframes shine {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.animate-shine {
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.3));
+    background-size: 200% 100%;
+    animation: shine 3s infinite;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #d4a373;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 0.75rem;
+    border: 1px solid #e0e0e0;
+    text-align: center;
+}
+
+th {
+    background-color: #d4a373;
+    color: white;
+}
+
+td {
+    background-color: #f8f5f2;
+}
+
+/* Welcome Message Styling */
+.welcome-message {
+    background-color: #fffaf0;
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 0.9rem;
+    color: #4e3620;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    .form-style form input,
+    .form-style form textarea,
+    .form-style form select {
+        font-size: 0.9rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+}
