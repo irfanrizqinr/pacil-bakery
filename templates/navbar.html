@@ -1,40 +1,61 @@
 {% load static %}
 <nav class="bg-[#d4a373] p-4 shadow-md">
-    <div class="container mx-auto flex items-center justify-between">
-      <!-- Brand/Logo -->
-      <div class="flex items-center space-x-4">
-        <!-- Logo -->
-        <img src="{% static 'image/logo.png' %}" alt="Pacil Bakery Logo" class="h-10 w-auto">
-        <!-- Nama Toko -->
-        <a href="{% url 'main:show_main' %}" class="text-white font-bold text-2xl lg:text-3xl">
-          Pacil Bakery 
-        </a>
-      </div>
-  
-      <!-- Mobile menu button -->
-      <div class="lg:hidden">
-        <button id="menu-toggle" class="text-white focus:outline-none">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-          </svg>
-        </button>
-      </div>
-  
-      <!-- Menu items -->
-      <div class="hidden lg:flex lg:items-center space-x-4">
-        <a href="{% url 'main:show_main' %}" class="text-white hover:text-[#b38b5b]">Home</a>
-        <a href="{% url 'main:create_product' %}" class="text-white hover:text-[#b38b5b]">Add Product</a>
-        {% if user.is_authenticated %}
-          <a href="{% url 'main:logout' %}">
-            <button class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-md transition-all duration-300">
-              Logout
-            </button>
-          </a>
-        {% else %}
-          <a href="{% url 'main:register' %}" class="text-white hover:text-[#b38b5b]">Register</a>
-          <a href="{% url 'main:login' %}" class="text-white hover:text-[#b38b5b]">Login</a>
-        {% endif %}
-      </div>
+  <div class="container mx-auto flex items-center justify-between">
+    <!-- Brand/Logo -->
+    <div class="flex items-center space-x-4">
+      <!-- Logo -->
+      <img src="{% static 'image/logo.png' %}" alt="Pacil Bakery Logo" class="h-10 w-auto">
+      <!-- Nama Toko -->
+      <a href="{% url 'main:show_main' %}" class="text-white font-bold text-2xl lg:text-3xl">
+        Pacil Bakery
+      </a>
     </div>
-  </nav>
-  
+
+    <!-- Mobile menu button (Hamburger) -->
+    <div class="lg:hidden">
+      <button id="menu-toggle" class="text-white focus:outline-none">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Menu items (Tersembunyi di mobile) -->
+    <div id="menu-items" class="hidden lg:flex lg:items-center space-x-4">
+      <a href="{% url 'main:show_main' %}" class="text-white hover:text-[#b38b5b]">Home</a>
+      <a href="{% url 'main:create_product' %}" class="text-white hover:text-[#b38b5b]">Add Product</a>
+      {% if user.is_authenticated %}
+        <a href="{% url 'main:logout' %}">
+          <button class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-md transition-all duration-300">
+            Logout
+          </button>
+        </a>
+      {% else %}
+        <a href="{% url 'main:register' %}" class="text-white hover:text-[#b38b5b]">Register</a>
+        <a href="{% url 'main:login' %}" class="text-white hover:text-[#b38b5b]">Login</a>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Menu items yang muncul saat mobile (dropdown) -->
+  <div id="mobile-menu" class="lg:hidden hidden flex flex-col space-y-2 mt-4">
+    <a href="{% url 'main:show_main' %}" class="block text-white p-2 hover:bg-[#b38b5b]">Home</a>
+    <a href="{% url 'main:create_product' %}" class="block text-white p-2 hover:bg-[#b38b5b]">Add Product</a>
+    {% if user.is_authenticated %}
+      <a href="{% url 'main:logout' %}" class="block text-white p-2 hover:bg-red-600 bg-red-500">Logout</a>
+    {% else %}
+      <a href="{% url 'main:register' %}" class="block text-white p-2 hover:bg-[#b38b5b]">Register</a>
+      <a href="{% url 'main:login' %}" class="block text-white p-2 hover:bg-[#b38b5b]">Login</a>
+    {% endif %}
+  </div>
+</nav>
+
+<!-- JavaScript untuk toggle menu di mobile -->
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  menuToggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');  // Menampilkan atau menyembunyikan menu
+  });
+</script>

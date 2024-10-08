@@ -201,3 +201,37 @@ Step 5 : Melakukan konfigurasi Static files
 Step 6 : Menambahkan Global.css sebagai styling utama
 Step 7 : Styling tiap halaman yang ada (tiap file pada /templates)
 Step 8 : Lakukan Git add, commit dan push ke remote repo.
+
+-------------------------Tugas 6------------------------------
+
+1. Jelaskan manfaat dari penggunaan JavaScript dalam pengembangan aplikasi web!
+
+Jawaban :
+JavaScript sangat berguna dalam pengembangan aplikasi web karena memungkinkan pembuatan halaman yang lebih interaktif dan responsif. Dengan JavaScript, pengembang dapat memperbarui konten tanpa harus memuat ulang seluruh halaman, memvalidasi input secara langsung, serta menambahkan animasi dan efek yang membuat pengalaman pengguna lebih menarik. Selain itu, JavaScript mendukung komunikasi asinkron melalui AJAX, memungkinkan integrasi API, dan membantu dalam pembuatan aplikasi berbasis single-page (SPA) yang cepat dan efisien.
+
+2. Jelaskan fungsi dari penggunaan await ketika kita menggunakan fetch()! Apa yang akan terjadi jika kita tidak menggunakan await?
+
+Jawaban :
+Fungsi await saat digunakan dengan fetch() adalah untuk menunggu hingga permintaan HTTP selesai dan respons diterima sebelum melanjutkan eksekusi kode. Jika await tidak digunakan, kode akan melanjutkan eksekusi tanpa menunggu respons, yang dapat menyebabkan akses data yang belum tersedia, seperti undefined atau Promise yang belum terselesaikan.
+
+3. Mengapa kita perlu menggunakan decorator csrf_exempt pada view yang akan digunakan untuk AJAX POST?
+
+Jawaban :
+Supaya mengecualikan fungsi tersebut dari pengecekan csrf_token
+
+4. Pada tutorial PBP minggu ini, pembersihan data input pengguna dilakukan di belakang (backend) juga. Mengapa hal tersebut tidak dilakukan di frontend saja?
+
+Jawaban :
+Pembersihan data input di backend tetap diperlukan meskipun sudah dilakukan di frontend karena frontend tidak sepenuhnya dapat diandalkan untuk keamanan. Pengguna yang berpengalaman atau berniat buruk bisa memodifikasi data yang dikirim dari frontend, melewati validasi, atau mengubah kode JavaScript. Dengan melakukan pembersihan dan validasi di backend, server dapat memastikan bahwa data yang diterima tetap aman dan sesuai dengan aturan, mencegah serangan seperti injeksi SQL, skrip lintas situs (XSS), atau data yang tidak valid. Ini memberikan lapisan perlindungan tambahan terhadap potensi eksploitasi.
+
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
+
+Step 1 : Membuat error message pada login_user
+Step 2 : membuat fungsi tambah product dengan ajax
+Step 3 : url routing fungsi tersebut 
+Step 4 : Implementasi fetch pada main.html
+Step 5 : Mengedit modal dan menambahkan fungsi fungsi JS pada tag script
+Step 6 : Implementasi Strip Tags
+Step 7 : Lakukan git commands
+
+
